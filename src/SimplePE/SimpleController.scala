@@ -7,12 +7,25 @@ class SimpleController(peArray:Seq[PE]) extends Controller(peArray) with BusPass
   def init() = 
   {
     System.err.println("SimpleController.init()")
-    peArray.foreach(p => p.init())
+    SimpleBus.write(this, SimpleBus.BROADCAST, PECtrl.INIT)
+    peArray.foreach(p => p.clock())
   }
   def program() = {}
-  def execute() = {}
-  def reconfigure() = {}
-  def terminate() = {}
+  def execute() =
+  {
+    SimpleBus.write(this, SimpleBus.BROADCAST, PECtrl.EXEC)
+    peArray.foreach(p => p.clock())
+  }
+  def reconfigure() =
+  {
+    SimpleBus.write(this, SimpleBus.BROADCAST, PECtrl.RECONF)
+    peArray.foreach(p => p.clock())
+  }
+  def terminate() =
+  {
+    SimpleBus.write(this, SimpleBus.BROADCAST, PECtrl.TERMINATE)
+    peArray.foreach(p => p.clock())
+  }
 }
 
 object SimpleController
@@ -23,4 +36,3 @@ object SimpleController
   }
 }
 
-// vim: set ts=4 sw=4 et:

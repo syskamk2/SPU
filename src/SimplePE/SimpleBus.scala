@@ -1,18 +1,26 @@
 package syskamk2.SPU.SimplePE
 
-import syskamk2.SPU.Bus
-import syskamk2.SPU.BusPassenger
+import syskamk2.SPU._
 
 object SimpleBus extends Bus
 {
-  private var address = 0;
+  val BROADCAST = (-1, -1, -1)
+  private var address = (0, 0, 0);
   private var data = 0;
-  def write(p:BusPassenger, a:Int, d:Int)
+  //一方通行にしないならアービターとか必要
+  def write(pa:BusPassenger, a:(Int, Int, Int), d:Int)
   {
-    address = a
-    data = d
+    pa match 
+    {
+      case _:PE =>
+      case _:Controller =>
+      {
+        address = a
+        data = d
+      }
+    }
   }
-  def read():(Int, Int) =
+  def read():((Int, Int, Int), Int) =
   {
     (address, data)
   }
