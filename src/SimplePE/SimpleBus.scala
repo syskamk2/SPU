@@ -7,6 +7,7 @@ object SimpleBus extends Bus
   val BROADCAST = (-1, -1, -1)
   private var address = (0, 0, 0);
   private var data = 0;
+  //Controllerからのみデータセット可能
   //一方通行にしないならアービターとか必要
   def write(pa:BusPassenger, a:(Int, Int, Int), d:Int)
   {

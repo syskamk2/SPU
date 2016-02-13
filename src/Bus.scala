@@ -6,6 +6,7 @@ abstract class Bus
   def read():((Int, Int, Int), Int)
 }
 
+//バスにぶら下がるモジュールは下記を使う
 trait CtrlBusPassenger
 trait ConfigurationBusPassenger
 trait BusPassenger extends CtrlBusPassenger with ConfigurationBusPassenger

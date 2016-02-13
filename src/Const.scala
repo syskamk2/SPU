@@ -1,5 +1,6 @@
 package syskamk2.SPU
 
+//ALU用命令
 object SimpleALUOp
 {
   val NOP = 0x0000
@@ -7,6 +8,7 @@ object SimpleALUOp
   val OR  = 0x0002
 }
 
+//PE制御信号
 object PECtrl
 {
   val NOP = 0x00
