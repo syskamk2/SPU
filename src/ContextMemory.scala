@@ -7,17 +7,3 @@ abstract class ContextMemory
   def write()
 }
 
-class SimpleContextMemory extends ContextMemory
-{
-  def init() = {}
-  def read() = {}
-  def write() = {}
-}
-
-object SimpleContextMemory
-{
-  def apply() =
-  {
-    new SimpleContextMemory()
-  }
-}
