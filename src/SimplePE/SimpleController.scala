@@ -2,7 +2,7 @@ package syskamk2.SPU.SimplePE
 
 import syskamk2.SPU._
 
-class SimpleController(peArray:Seq[PE]) extends Controller(peArray)
+class SimpleController(peArray:Seq[PE]) extends Controller(peArray) with BusPassenger
 {
   def init() = 
   {

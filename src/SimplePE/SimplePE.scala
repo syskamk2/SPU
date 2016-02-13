@@ -3,7 +3,7 @@ package syskamk2.SPU.SimplePE
 import syskamk2.SPU._
 import syskamk2.SPU.SimplePE._
 
-case class SimpleExe(override val coordinate:Tuple3[Int, Int, Int]) extends PE(coordinate)
+case class SimpleExe(override val coordinate:Tuple3[Int, Int, Int]) extends PE(coordinate) with BusPassenger
 {
   val alu:ALU = SimpleALU(Some(this))
   val context:ContextMemory = SimpleContextMemory()
