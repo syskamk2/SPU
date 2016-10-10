@@ -4,10 +4,16 @@ trait IO
 {
 }
 
-trait I extends IO
+case class I(width:Int) extends IO
 {
+  val d:Bits = Bits(width)
+  def write(dat:Bits) {}
+  //for Debug
+  def read():Bits = d
 }
 
-trait O extends IO
+case class O(width:Int) extends IO
 {
+  val d:Bits = Bits(width)
+  def read():Bits = d
 }
